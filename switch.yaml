@@ -1,0 +1,21 @@
+switch:
+  - platform: mqtt
+    name: Device1
+    command_topic: "toarduino"
+    state_topic: "fromarduino"
+    payload_on: "0"
+    payload_off: "1"
+
+  - platform: mqtt
+    name: Device2
+    command_topic: "toarduino"
+    state_topic: "fromarduino"
+    payload_on: "2"
+    payload_off: "3"
+
+  - platform: mqtt
+    name: Device3
+    command_topic: "toarduino"
+    state_topic: "fromarduino"
+    payload_on: "4"
+    payload_off: "5"
