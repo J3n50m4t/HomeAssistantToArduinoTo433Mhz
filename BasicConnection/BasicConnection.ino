@@ -31,6 +31,9 @@ void setup() {
   #ifdef mqtt
     setupmqtt();
   #endif
+  #ifdef IR
+    setupIR();
+  #endif
 }
 
 void loop() {
