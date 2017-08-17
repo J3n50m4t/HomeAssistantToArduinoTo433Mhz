@@ -1,4 +1,4 @@
-//Don't forgett MQTT Username and Password in line 83 or remove it 
+//Don't forgett MQTT Username and Password in line 80 or remove it 
 #include <ESP8266WiFi.h> 
 #include <PubSubClient.h> 
 #include <RCSwitch.h> 
@@ -69,4 +69,42 @@ void callback(char* topic, byte* payload, unsigned int length) {
             Serial.println("Antwort gesendet 5"); 
             mySwitch.switchOff('a', 1, 3); 
             break;                                
-  } 
+  }
+}
+
+void reconnect() {
+  while (!client.connected()) {
+    Serial.print("Attempting MQTT connection...");
+    String clientId = "ESP8266Client-";
+    clientId += String(random(0xffff), HEX);
+    if (client.connect(clientId.c_str(), "mqttuser", "password")) {
+      Serial.println("connected");
+      client.publish("fromarduino", "hello");
+      client.subscribe("toarduino");
+    } else {
+      Serial.print("failed, rc=");
+      Serial.print(client.state());
+      Serial.println(" try again in 5 seconds");
+      delay(5000);
+    }
+  }
+}
+
+void setup() {
+  pinMode(BUILTIN_LED, OUTPUT);     // Initialize the BUILTIN_LED pin as an output
+  Serial.begin(115200);
+  setup_wifi();
+  client.setServer(mqtt_server, 1883);
+  client.setCallback(callback);
+  mySwitch.enableTransmit(4);
+}
+
+void loop() {
+
+  if (!client.connected()) {
+    reconnect();
+  }
+  client.loop();
+  
+}
+ 
