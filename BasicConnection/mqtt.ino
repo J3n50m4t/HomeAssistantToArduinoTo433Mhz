@@ -63,9 +63,9 @@ void reconnect() {
 }
 
 void setupmqtt(){
-  client.setServer(mqtt_server, 1883);
+  client.setServer(mqtt_server, mqtt_port);
   client.setCallback(callback);
-  mySwitch.enableTransmit(4);
+  mySwitch.enableTransmit(mqtt_connected_pin);
 }
 
 
