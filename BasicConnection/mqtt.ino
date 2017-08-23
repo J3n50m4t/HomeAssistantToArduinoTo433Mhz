@@ -10,37 +10,39 @@ void callback(char* topic, byte* payload, unsigned int length) {
   } 
   Serial.println(); 
  
+
+
   switch(payload[0]){ 
+    //Numbers in char code.. So 0 is 48 
     case 48:  
             client.publish("fromarduino", "0"); 
-            Serial.println("Antwort gesendet 0"); 
-            mySwitch.switchOn('a', 1, 1); 
+            
+            callcase48();
             break; 
     case 49:  
             client.publish("fromarduino", "1"); 
-            Serial.println("Antwort gesendet 1"); 
-            mySwitch.switchOff('a', 1, 1); 
+            callcase49();
             break; 
     case 50:  
             client.publish("fromarduino", "2"); 
-            Serial.println("Antwort gesendet 2"); 
-            mySwitch.switchOn('a', 1, 2); 
+            callcase50();
             break; 
     case 51:  
             client.publish("fromarduino", "3"); 
-            Serial.println("Antwort gesendet 3"); 
-            mySwitch.switchOff('a', 1, 2); 
+            callcase51();
             break;   
     case 52:  
-            client.publish("fromarduino", "4"); 
-            Serial.println("Antwort gesendet 4"); 
-            mySwitch.switchOn('a', 1, 3); 
+            client.publish("fromarduino", "4");  
+            callcase52();; 
             break; 
     case 53:  
             client.publish("fromarduino", "5"); 
-            Serial.println("Antwort gesendet 5"); 
-            mySwitch.switchOff('a', 1, 3); 
-            break;                                
+            callcase53();
+            break;   
+    case 54:  
+            client.publish("fromarduino", "6"); 
+            callcase54();
+            break;                                 
   }
 }
 
@@ -63,9 +65,10 @@ void reconnect() {
 }
 
 void setupmqtt(){
+  
   client.setServer(mqtt_server, mqtt_port);
   client.setCallback(callback);
-  mySwitch.enableTransmit(mqtt_connected_pin);
+  
 }
 
 
