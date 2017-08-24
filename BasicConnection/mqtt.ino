@@ -42,7 +42,19 @@ void callback(char* topic, byte* payload, unsigned int length) {
     case 54:  
             client.publish("fromarduino", "6"); 
             callcase54();
-            break;                                 
+            break;     
+    case 55:  
+            client.publish("fromarduino", "7"); 
+            callcase54();
+            break;                               
+    case 56:  
+            client.publish("fromarduino", "8"); 
+            callcase56();
+            break;     
+    case 57:  
+            client.publish("fromarduino", "9"); 
+            callcase57();
+            break;          
   }
 }
 
