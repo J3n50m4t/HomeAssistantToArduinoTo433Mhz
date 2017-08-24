@@ -9,6 +9,6 @@ const uint16_t mqtt_connected_pin = 4;
 const uint16_t IR_connected_pin = 5;
 
 // What to use
-#define mqtt;
-#define RC433mhz;
+#define mqtt
+#define RC433mhz
 #define IR
