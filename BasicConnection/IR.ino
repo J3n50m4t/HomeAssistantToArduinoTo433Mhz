@@ -36,3 +36,25 @@ void callcase57(){
   Serial.println("SonyAnlage leiser"); 
 }
 
+void callcase65(){
+  irsend.sendNEC(0x2FD48B7, 32);
+  Serial.println("TV Toggle NEC");
+  delay(200);
+}
+void callcase66(){
+  irsend.sendNEC(0x2FD28D7, 32);
+  Serial.println("TV Source NEC");
+  delay(200);
+}
+void callcase67(){
+  irsend.sendNEC(0x2FDD827, 32);
+  Serial.println("TV ProgrammUp NEC");
+  delay(200);
+}
+void callcase68(){
+  irsend.sendNEC(0x2FDF807, 32);
+  Serial.println("TV ProgrammUp NEC");
+  delay(200);
+}
+void callcase69(){}
+void callcase70(){}

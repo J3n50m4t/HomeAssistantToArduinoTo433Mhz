@@ -54,7 +54,35 @@ void callback(char* topic, byte* payload, unsigned int length) {
     case 57:  
             client.publish("fromarduino", "9"); 
             callcase57();
-            break;          
+            break;      
+    case 65:
+            client.publish("fromArduino", "A");
+            callcase65();
+            break;      
+    case 66:
+            client.publish("fromArduino", "B");
+            callcase66();
+            break;
+              
+    case 67:
+            client.publish("fromArduino", "C");
+            callcase67();
+            break;
+              
+    case 68:
+            client.publish("fromArduino", "D");
+            callcase68();
+            break;
+              
+
+    case 69:
+            client.publish("fromArduino", "E");
+            callcase69();
+            break;
+    case 70:
+            client.publish("fromArduino", "F");
+            callcase70();
+            break;
   }
 }
 
@@ -84,3 +112,4 @@ void setupmqtt(){
 }
 
 
+    
