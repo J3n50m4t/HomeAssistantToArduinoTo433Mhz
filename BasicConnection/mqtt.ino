@@ -63,18 +63,14 @@ void callback(char* topic, byte* payload, unsigned int length) {
             client.publish("fromArduino", "B");
             callcase66();
             break;
-              
     case 67:
             client.publish("fromArduino", "C");
             callcase67();
-            break;
-              
+            break;              
     case 68:
             client.publish("fromArduino", "D");
             callcase68();
-            break;
-              
-
+            break;              
     case 69:
             client.publish("fromArduino", "E");
             callcase69();
@@ -82,6 +78,22 @@ void callback(char* topic, byte* payload, unsigned int length) {
     case 70:
             client.publish("fromArduino", "F");
             callcase70();
+            break;
+    case 71:
+            client.publish("fromArduino", "G");
+            callcase71();
+            break;
+    case 72:
+            client.publish("fromArduino", "H");
+            callcase72();
+            break;
+    case 73:
+            client.publish("fromArduino", "I");
+            callcase73();
+            break;
+    case 74:
+            client.publish("fromArduino", "J");
+            callcase74();
             break;
   }
 }
